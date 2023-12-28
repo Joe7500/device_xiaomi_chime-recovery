@@ -56,6 +56,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_XZ_UTILS=1
         export OF_QUICK_BACKUP_LIST="/boot;/dtbo;"
 	export OF_PATCH_AVB20=1
+	export OF_DEFAULT_KEYMASTER_VERSION=4.1
         export FOX_DELETE_AROMAFM=1
         export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"; # Tuesday, January 1, 2019 12:00:00 AM GMT+00:00
 	export FOX_USE_NANO_EDITOR=1
@@ -75,9 +76,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export OF_STATUS_INDENT_RIGHT=48
 	export OF_CLOCK_POS=1
 
-	# R12.1 Settings
-	export FOX_VERSION="R12.1_69420"
+	# R11.3 Settings
+	export FOX_MAINTAINER_PATCH_VERSION="9"
 	export OF_MAINTAINER="itsHanibee"
+        export OF_MAINTAINER_AVATAR="device/xiaomi/chime/hani.png"
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
