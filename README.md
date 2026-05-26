@@ -1,6 +1,4 @@
-<h2 align="center">TWRP device configuration for POCO M3/Redmi 9T (chime)</h2>
-
-![banner-chime](https://telegra.ph/file/ed5c8cbd91ac3dd7739b3.jpg)
+<h2 align="center">OrangeFox device configuration for POCO M3/Redmi 9T (chime)</h2>
 
 ### Information
 
