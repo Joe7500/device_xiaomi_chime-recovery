@@ -98,4 +98,12 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export | grep "TW_" >>$FOX_BUILD_LOG_FILE
 	fi
 fi
-#
+
+# Change boot splash screen (black background orange logo)
+cp device/xiaomi/chime/black_bg.png bootable/recovery/gui/theme/portrait_hdpi/images/Splash/original.png
+sed -i 's/logo_w/logo_o/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml 
+sed -i 's/name="background_color" value="#D34E38"/name="background_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+sed -i 's/name="header_color" value="#FF8038"/name="header_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+sed -i 's/font resource="recovery" color="#ffffff"/font resource="recovery" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+sed -i 's/font resource="of" color="#ffffff"/font resource="of" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+
