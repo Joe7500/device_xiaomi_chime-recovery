@@ -54,6 +54,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_TAR_BINARY=1
 	export FOX_USE_SED_BINARY=1
 	export FOX_USE_XZ_UTILS=1
+	export FOX_USE_BUSYBOX_BINARY="1"
 	export OF_QUICK_BACKUP_LIST="/boot;/dtbo;"
 	export OF_PATCH_AVB20=1
 	export OF_DEFAULT_KEYMASTER_VERSION=4.1
