@@ -103,3 +103,16 @@ fi
 # Custom maintainer avatar
 cp -v device/xiaomi/chime/icon.png bootable/recovery/gui/theme/portrait_hdpi/images/Default/About/maintainer.png
 
+# Set Dark as default theme
+cp -v bootable/recovery/gui/theme/portrait_hdpi/themes/styles/Dark.xml bootable/recovery/gui/theme/portrait_hdpi/themes/style.xml
+
+# Enable navbar (old style navigation)
+echo '<?xml version="1.0"?>
+<recovery>
+        <variables>
+                <variable name="navbar_disable" value="0"/>
+                <variable name="navbar_disable_add" value="0"/>
+                <variable name="screen_h" value="2340"/>
+                <variable name="real_gestures_enable" value="0"/>
+        </variables>
+</recovery>' > bootable/recovery/gui/theme/portrait_hdpi/themes/navbar.xml
