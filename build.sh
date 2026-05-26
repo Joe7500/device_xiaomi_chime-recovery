@@ -1,0 +1,21 @@
+
+OFOX_BUILD_PATH=`pwd`
+OFOX_BRANCH=12.1
+
+if echo "$@" | grep sync ; then
+   rm -rf bootable/recovery/ vendor/recovery/ sync/
+   git clone https://gitlab.com/OrangeFox/sync.git
+   cd sync
+   ./orangefox_sync.sh --branch $OFOX_BRANCH --path "$OFOX_BUILD_PATH"
+   git clone https://gitlab.com/OrangeFox/misc/scripts
+   cd "$OFOX_BUILD_PATH"
+   rm -rf device/xiaomi/chime
+   git clone https://github.com/Joe7500/device_xiaomi_chime-recovery -b fox-11.3 device/xiaomi/chime
+fi
+
+source build/envsetup.sh
+bash device/xiaomi/chime/vendorsetup.sh
+export ALLOW_MISSING_DEPENDENCIES=true
+export FOX_BUILD_DEVICE=chime
+export LC_ALL="C"
+lunch twrp_chime-eng && make clean && mka adbd recoveryimage -j$(nproc --all)
