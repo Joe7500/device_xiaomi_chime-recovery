@@ -12,6 +12,7 @@ if echo "$@" | grep sync ; then
    rm -rf bootable/recovery/ vendor/recovery/ sync/
    git clone https://gitlab.com/OrangeFox/sync.git
    cd sync
+   sed -i 's/for i in $depends do/for i in $depends ; do/g' orangefox_sync.sh
    ./orangefox_sync.sh --branch $OFOX_BRANCH --path "$OFOX_BUILD_PATH"
    git clone https://gitlab.com/OrangeFox/misc/scripts
    cd "$OFOX_BUILD_PATH"
