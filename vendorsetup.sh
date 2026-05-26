@@ -83,14 +83,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_MAINTAINER="Joe7500"
 	export OF_MAINTAINER_AVATAR="device/xiaomi/chime/icon.png"
 
-	# switch to last 11.3 commit
-	cd vendor/recovery
-	git reset --hard 30603797350f7cf469a43fed97901d41adbb346c
-	cd ../../
-	cd bootable/recovery
-	git reset --hard 0ee6f8e89864a8497771422ef3c181b315a0971f
-	cd ../../
-
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
 		export | grep "FOX" >>$FOX_BUILD_LOG_FILE
@@ -99,6 +91,14 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export | grep "TW_" >>$FOX_BUILD_LOG_FILE
 	fi
 fi
+
+# switch to last 11.3 commit
+cd vendor/recovery
+git reset --hard 30603797350f7cf469a43fed97901d41adbb346c
+cd ../../
+cd bootable/recovery
+git reset --hard 0ee6f8e89864a8497771422ef3c181b315a0971f
+cd ../../
 
 # Custom maintainer avatar
 cp -v device/xiaomi/chime/icon.png bootable/recovery/gui/theme/portrait_hdpi/images/Default/About/maintainer.png
