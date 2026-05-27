@@ -79,7 +79,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_CLOCK_POS=1
 
 	# R11.3 Settings
-	export FOX_MAINTAINER_PATCH_VERSION="11"
+	export FOX_MAINTAINER_PATCH_VERSION="12"
 	export OF_MAINTAINER="Joe7500"
 	export OF_MAINTAINER_AVATAR="device/xiaomi/chime/icon.png"
 
