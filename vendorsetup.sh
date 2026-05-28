@@ -91,6 +91,17 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	git reset --hard 0ee6f8e89864a8497771422ef3c181b315a0971f
 	cd ../../
 
+	# Custom maintainer avatar
+	cp -v device/xiaomi/chime/icon.png bootable/recovery/gui/theme/portrait_hdpi/images/Default/About/maintainer.png
+
+	# Change boot splash screen (black background orange logo)
+	cp device/xiaomi/chime/black_bg.png bootable/recovery/gui/theme/portrait_hdpi/images/Splash/original.png
+	sed -i 's/logo_w/logo_o/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+	sed -i 's/name="background_color" value="#D34E38"/name="background_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+	sed -i 's/name="header_color" value="#FF8038"/name="header_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+	sed -i 's/font resource="recovery" color="#ffffff"/font resource="recovery" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+	sed -i 's/font resource="of" color="#ffffff"/font resource="of" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
+
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
 		export | grep "FOX" >>$FOX_BUILD_LOG_FILE
@@ -99,14 +110,3 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export | grep "TW_" >>$FOX_BUILD_LOG_FILE
 	fi
 fi
-
-# Custom maintainer avatar
-cp -v device/xiaomi/chime/icon.png bootable/recovery/gui/theme/portrait_hdpi/images/Default/About/maintainer.png
-
-# Change boot splash screen (black background orange logo)
-cp device/xiaomi/chime/black_bg.png bootable/recovery/gui/theme/portrait_hdpi/images/Splash/original.png
-sed -i 's/logo_w/logo_o/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
-sed -i 's/name="background_color" value="#D34E38"/name="background_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
-sed -i 's/name="header_color" value="#FF8038"/name="header_color" value="#000000"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
-sed -i 's/font resource="recovery" color="#ffffff"/font resource="recovery" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
-sed -i 's/font resource="of" color="#ffffff"/font resource="of" color="#eb4034"/g' bootable/recovery/gui/theme/portrait_hdpi/splash.xml
