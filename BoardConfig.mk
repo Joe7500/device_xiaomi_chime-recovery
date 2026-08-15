@@ -35,7 +35,6 @@ ENABLE_SCHEDBOOST := true
 PRODUCT_PLATFORM := bengal
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 TARGET_NO_BOOTLOADER := true
-TARGET_USES_UEFI := true
 
 # Platform
 TARGET_BOARD_PLATFORM := bengal
@@ -89,7 +88,7 @@ BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 8589934592
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := product vendor system system_ext odm
 
-BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
+BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist odm odm_dlkm vendor_dlkm cust
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # File systems
