@@ -97,8 +97,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	# Disable automatic rebooting after openrecoveryscript finishes
 	export OF_DISABLE_ORS_AUTO_REBOOT="1"
 
-	# Maintainer settings
-	export FOX_MAINTAINER_PATCH_VERSION="12"
+	# R11.3 Settings
+	export FOX_MAINTAINER_PATCH_VERSION="14"
 	export OF_MAINTAINER="Joe7500"
 	export OF_MAINTAINER_AVATAR="device/xiaomi/chime/icon.png"
 
