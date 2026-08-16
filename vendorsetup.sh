@@ -98,7 +98,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_DISABLE_ORS_AUTO_REBOOT="1"
 
 	# R11.3 Settings
-	export FOX_MAINTAINER_PATCH_VERSION="14"
+	export FOX_MAINTAINER_PATCH_VERSION="15"
 	export OF_MAINTAINER="Joe7500"
 	export OF_MAINTAINER_AVATAR="device/xiaomi/chime/icon.png"
 
