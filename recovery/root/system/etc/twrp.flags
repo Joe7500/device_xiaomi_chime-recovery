@@ -5,14 +5,10 @@
 # mount point       fstype   device                             device2               flags
 
 # Logical partitions
-/system_root        ext4     /dev/block/mapper/system                                 flags=backup=0;removable
-/system_ext         ext4     /dev/block/mapper/system_ext                             flags=backup=0;removable
 /vendor             ext4     /dev/block/mapper/vendor                                 flags=backup=0;removable
 /product            ext4     /dev/block/mapper/product                                flags=backup=0;removable
 /system_root        erofs    /dev/block/mapper/system                                 flags=backup=0;removable
 /system_ext         erofs    /dev/block/mapper/system_ext                             flags=backup=0;removable
-/vendor             erofs    /dev/block/mapper/vendor                                 flags=backup=0;removable
-/product            erofs    /dev/block/mapper/product                                flags=backup=0;removable
 /metadata           ext4     /dev/block/bootdevice/by-name/metadata                   flags=backup=0;wrappedkey;display="Metadata"
 /data               f2fs     /dev/block/bootdevice/by-name/userdata                   flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
 /boot               emmc     /dev/block/bootdevice/by-name/boot
@@ -27,6 +23,8 @@
 /modem              emmc     /dev/block/bootdevice/by-name/modem                      flags=backup=1;display="Modem"
 /bluetooth          emmc     /dev/block/bootdevice/by-name/bluetooth                  flags=backup=1;subpartitionof=/modem
 /dsp                emmc     /dev/block/bootdevice/by-name/dsp                        flags=backup=1;subpartitionof=/modem
+/odm                ext4     /dev/block/mapper/odm                                    flags=display="odm";backup=0;wipeingui
+/odm_image          emmc     /dev/block/mapper/odm                                    flags=backup=1;display="odm image";flashimg=1
 
 # Firmware partitions
 /abl                emmc     /dev/block/bootdevice/by-name/abl                        flags=display="Bootloader";backup=1
@@ -48,10 +46,6 @@
 /xbl_config         emmc     /dev/block/bootdevice/by-name/xbl_config                 flags=backup=1;subpartitionof=/abl
 
 # Other partitions
-/efs1               emmc     /dev/block/bootdevice/by-name/modemst1                   flags=backup=1;display=EFS
-/efs2               emmc     /dev/block/bootdevice/by-name/modemst2                   flags=backup=1;subpartitionof=/efs1
-/efsc               emmc     /dev/block/bootdevice/by-name/fsc                        flags=backup=1;subpartitionof=/efs1
-/efsg               emmc     /dev/block/bootdevice/by-name/fsg                        flags=backup=1;subpartitionof=/efs1
 /efs1               emmc     /dev/block/bootdevice/by-name/modemst1                   flags=backup=1;display=EFS
 /efs2               emmc     /dev/block/bootdevice/by-name/modemst2                   flags=backup=1;subpartitionof=/efs1
 /efsc               emmc     /dev/block/bootdevice/by-name/fsc                        flags=backup=1;subpartitionof=/efs1
